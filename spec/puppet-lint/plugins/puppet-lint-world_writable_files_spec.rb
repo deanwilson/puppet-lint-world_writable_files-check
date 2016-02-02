@@ -18,6 +18,23 @@ describe 'world_writable_files' do
     end
   end
 
+  context 'file with a mode of undef' do
+    let(:code) do
+      <<-EOS
+        class undef_file_mode {
+          file { '/tmp/undef_file_mode':
+            ensure => 'file',
+            mode   => undef,
+          }
+        }
+      EOS
+    end
+
+    it 'should not detect any problems' do
+      expect(problems).to have(0).problems
+    end
+  end
+
   context 'file with a world writable octal mode of 666' do
     let(:msg) { 'files should not be created with world writable permissions' }
     let(:code) do
@@ -39,4 +56,6 @@ describe 'world_writable_files' do
       expect(problems).to contain_warning(msg).on_line(4).in_column(23)
     end
   end
+
+
 end
