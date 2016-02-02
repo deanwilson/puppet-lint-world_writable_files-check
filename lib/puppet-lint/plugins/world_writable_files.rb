@@ -9,6 +9,8 @@ PuppetLint.new_check(:world_writable_files) do
           # get the file modes value
           value_token = param_token.next_code_token.next_code_token
 
+          # we only work with octal for now - also stops file { mode => undef }
+          break if value_token.value !~ /^\d+$/
           break if value_token.value =~ /\d+[^2367]$/
 
           notify :warning, {
