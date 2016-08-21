@@ -1,4 +1,4 @@
-# puppet-lint world_writable_files check #
+# puppet-lint world_writable_files check
 
 A puppet-lint extension that ensures file resources do not have a mode
 that makes them world writable.
@@ -15,7 +15,7 @@ This plugin currently only checks octal file modes, the
 `puppet-lint` check ensure this isn't a problem for my code bases but it
 might be a consideration for other peoples usages.
 
-## Installation ##
+## Installation
 
 To use this plugin add the following line to your `Gemfile`
 
@@ -23,7 +23,7 @@ To use this plugin add the following line to your `Gemfile`
 
 and then run `bundle install`
 
-## Usage ##
+## Usage
 
 This plugin provides a new check to `puppet-lint` that warns if it finds
 a file resource that would be created with a mode that allowed every one
@@ -41,5 +41,10 @@ of the system and so will raise:
 
     files should not be created with world writable permissions
 
-### Author ###
+## Other puppet-lint plugins
+
+You can find a list of my `puppet-lint` plugins in the
+[unixdaemon puppet-lint-plugins](https://github.com/deanwilson/unixdaemon-puppet-lint-plugins) repo.
+
+### Author
 [Dean Wilson](http://www.unixdaemon.net)

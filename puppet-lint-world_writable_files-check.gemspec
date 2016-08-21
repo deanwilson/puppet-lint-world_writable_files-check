@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name        = 'puppet-lint-world_writable_files-check'
-  spec.version     = '0.0.1'
+  spec.version     = '0.0.2'
   spec.homepage    = 'https://github.com/deanwilson/puppet-lint-world_writable_files-check'
   spec.license     = 'MIT'
   spec.author      = 'Dean Wilson'
@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
     them world writable.
   EOF
 
-  spec.add_dependency             'puppet-lint', '~> 1.1'
+  spec.add_dependency             'puppet-lint', '>= 1.1', '< 3.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rspec-its', '~> 1.0'
   spec.add_development_dependency 'rspec-collection_matchers', '~> 1.0'
