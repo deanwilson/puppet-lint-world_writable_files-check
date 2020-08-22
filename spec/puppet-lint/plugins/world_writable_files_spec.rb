@@ -13,7 +13,7 @@ describe 'world_writable_files' do
       TEST_CLASS
     end
 
-    it 'should not detect any problems' do
+    it 'does not detect any problems' do
       expect(problems).to have(0).problems
     end
   end
@@ -30,7 +30,7 @@ describe 'world_writable_files' do
       TEST_CLASS
     end
 
-    it 'should not detect any problems' do
+    it 'does not detect any problems' do
       expect(problems).to have(0).problems
     end
   end
@@ -48,11 +48,11 @@ describe 'world_writable_files' do
       TEST_CLASS
     end
 
-    it 'should detect a problem' do
+    it 'detects a problem' do
       expect(problems).to have(1).problem
     end
 
-    it 'should create a warning' do
+    it 'creates a warning' do
       expect(problems).to contain_warning(msg).on_line(4).in_column(23)
     end
   end
