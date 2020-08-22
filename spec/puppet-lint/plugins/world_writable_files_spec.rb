@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'world_writable_files' do
-  context 'file with a mode of 640' do
+  context 'when file resource has a mode of 640' do
     let(:code) do
       <<-TEST_CLASS
         class locked_down_file {
@@ -18,7 +18,7 @@ describe 'world_writable_files' do
     end
   end
 
-  context 'file with a mode of undef' do
+  context 'when file has a mode of undef' do
     let(:code) do
       <<-TEST_CLASS
         class undef_file_mode {
@@ -35,7 +35,7 @@ describe 'world_writable_files' do
     end
   end
 
-  context 'file with a world writable octal mode of 666' do
+  context 'when file has a world writable octal mode of 666' do
     let(:msg) { 'files should not be created with world writable permissions' }
     let(:code) do
       <<-TEST_CLASS
