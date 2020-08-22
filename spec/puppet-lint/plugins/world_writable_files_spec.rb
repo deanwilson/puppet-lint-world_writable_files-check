@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'world_writable_files' do
-  context 'file with a mode of 640' do
+  context 'when file resource has a mode of 640' do
     let(:code) do
       <<-TEST_CLASS
         class locked_down_file {
@@ -13,12 +13,12 @@ describe 'world_writable_files' do
       TEST_CLASS
     end
 
-    it 'should not detect any problems' do
+    it 'does not detect any problems' do
       expect(problems).to have(0).problems
     end
   end
 
-  context 'file with a mode of undef' do
+  context 'when file has a mode of undef' do
     let(:code) do
       <<-TEST_CLASS
         class undef_file_mode {
@@ -30,12 +30,12 @@ describe 'world_writable_files' do
       TEST_CLASS
     end
 
-    it 'should not detect any problems' do
+    it 'does not detect any problems' do
       expect(problems).to have(0).problems
     end
   end
 
-  context 'file with a world writable octal mode of 666' do
+  context 'when file has a world writable octal mode of 666' do
     let(:msg) { 'files should not be created with world writable permissions' }
     let(:code) do
       <<-TEST_CLASS
@@ -48,11 +48,11 @@ describe 'world_writable_files' do
       TEST_CLASS
     end
 
-    it 'should detect a problem' do
+    it 'detects a problem' do
       expect(problems).to have(1).problem
     end
 
-    it 'should create a warning' do
+    it 'creates a warning' do
       expect(problems).to contain_warning(msg).on_line(4).in_column(23)
     end
   end
