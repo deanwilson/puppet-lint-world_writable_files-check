@@ -1,6 +1,22 @@
 require 'spec_helper'
 
 describe 'world_writable_files' do
+  context 'when the manifest has no file resources' do
+    let(:code) do
+      <<-TEST_CLASS
+        class no_file_resource {
+          host { 'syslog':
+            ip => '10.10.10.10',
+          }
+        }
+      TEST_CLASS
+    end
+
+    it 'does not detect any problems' do
+      expect(problems).to have(0).problems
+    end
+  end
+
   context 'when file resource has a mode of 640' do
     let(:code) do
       <<-TEST_CLASS
