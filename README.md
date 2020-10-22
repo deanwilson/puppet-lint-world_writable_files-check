@@ -3,7 +3,7 @@
 A puppet-lint extension that ensures file resources do not have a mode
 that makes them world writable.
 
-[![Build Status](https://travis-ci.org/deanwilson/puppet-lint-world_writable_files-check.svg?branch=main)](https://travis-ci.org/deanwilson/puppet-lint-world_writable_files-check)
+[![Actions Status](https://github.com/deanwilson/puppet-lint-world_writable_files-check/workflows/Ruby/badge.svg)](https://github.com/deanwilson/puppet-lint-world_writable_files-check/actions)
 
 On a *nix system a world writable file is one that anyone can write to.
 This is often undesirable, especially in production, where who can
